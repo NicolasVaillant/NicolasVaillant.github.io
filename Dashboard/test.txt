@@ -1,0 +1,17 @@
+//IMAGE 2
+            var iconcode_html_2 = res_actu.articles[2].urlToImage;
+            var img_2 = document.getElementById("simg_2");
+            img_2.style.borderRadius = "5px"
+            img_2.style.width = 100 + "px";
+            img_2.setAttribute("src", iconcode_html_2);
+//IMAGE 3
+            var iconcode_html_3 = res_actu.articles[3].urlToImage;
+            var img_3 = document.getElementById("simg_3");
+            img_3.style.borderRadius = "5px"
+            img_3.style.width = 100 + "px";
+            img_3.setAttribute("src", iconcode_html_3);
+
+
+
+            actu_html_2.innerText = actu_info_2
+            actu_html_3.innerText = actu_info_3

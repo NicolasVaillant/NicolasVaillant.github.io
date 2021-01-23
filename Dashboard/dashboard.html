@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="dashboard_css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function()
+        {
+            setInterval(function(){
+                var dt=new Date();
+                $(".container_mail").text("Time : " + dt.getHours() + " : " + dt.getMinutes() + " : " + dt.getSeconds());
+            },1000);
+
+        //TEMPERATURE
+        chatillon_loc();
+        ste_loc();
+        ploemel_loc();
+        temperature_chambre_nico();
+
+        //ACTUALITE
+        actu();
+
+        // SPOTIFY FRAMES
+            spotify_iframe()
+        //MISE EN FORME
+        bouton_send()
+
+        //ACTUALISATION
+        setInterval(actu, 3600000);      //3600000ms : 1H
+        setInterval(chatillon_loc, 900000);     //900000ms : 15min
+        setInterval(ste_loc, 900000);
+        setInterval(ploemel_loc, 900000);
+        setInterval(temperature_chambre_nico, 300000);  //300000ms : 5min
+
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+<div class="content">
+    <div id="gauche">
+            <!-- PLOEMEL -->
+        <div id="head_deroulant">
+            <div id="div_deroulant">
+                <div class="container">
+                    <div class="icon"><img id="wiconp" src="" alt="Weather icon"></div>
+                    <div class="bloc-info-p">
+                        <p class="locationp"></p>
+                        <p class="tempsp"></p>
+                    </div>
+                    <div class="bloc-ville-p">
+                        <p class="temperaturep" style="color:white"></p>
+                    </div>
+                </div>
+                <div>
+                    <p id="temp_chambre" style="color:white; float: left"></p>
+                    <p id="text_temp_chambre" style="color:white; float:right"></p>
+                </div>
+            </div>
+        </div>
+     <!-- CHATILLON -->
+        <div class="container">
+            <div class="icon"><img id="wiconc" src="" alt="Weather icon"></div>
+                <div class="bloc-info-c">
+                    <p style="font-size : 20px; padding-top:10px;">Châtillon</p>
+                    <p class="tempsc"></p>
+                </div>
+                <div class="bloc-ville-c">
+                    <p class="temperaturec" style="color:white"></p>
+                </div>
+        </div>
+     <!-- SAINT- ETIENNE -->
+        <div class="container">
+            <div class="icon"><img id="wicons" src="" alt="Weather icon"></div>
+                <div class="bloc-info-s">
+                    <p class="locations"></p>
+                    <p class="tempss"></p>
+                </div>
+                <div class="bloc-ville-s">
+                    <p class="temperatures" style="color:white"></p>
+                </div>
+        </div>
+
+        <div class="container-actu">
+            <div class="header-actu">
+                <div style="float:left"><p class="titre">Actualités</p></div>
+
+                    <div id="date_actu">
+                        <p class="date_html"></p>
+                    </div>
+                     <div id ="heure_actu">
+                        <p class="heure_maj"></p>
+                    </div>
+                </div>
+            <div class="bloc-info-actu">
+    <!-- INFORMATION 0 -->
+                    <div class="info_0">
+                        <div class="image_actu">
+                            <img id="simg_0" src="actu.jpg" alt="Actu img" style="border-radius:5px; width:150px; height:auto;">
+                            <div class="txt-actu"><p class="actu_html_0"  style="display:contents"></p></div>
+                        </div>
+                    </div>
+                <hr class="actu">
+    <!-- INFORMATION 1 -->
+                    <div class="info_1">
+                        <div class="image_actu">
+                            <img id="simg_1" src="actu.jpg" alt="Actu img" style="border-radius:5px; width:150px; height:auto;">
+                            <div class="txt-actu"><p class="actu_html_1" style="display:contents"></p></div>
+                        </div>
+                    </div>
+                <hr class="actu">
+    <!-- INFORMATION 2 -->
+                    <div class="info_2">
+                        <div class="image_actu">
+                            <img id="simg_2" src="actu.jpg" alt="Actu img" style="border-radius:5px; width:150px; height:auto;">
+                            <div class="txt-actu"><p class="actu_html_2" style="display:contents"></p></div>
+                        </div>
+                    </div>
+                <hr class="actu">
+    <!-- INFORMATION 3 -->
+                <div class="info_3">
+                    <div class="image_actu">
+                        <img id="simg_3" src="actu.jpg" alt="Actu img" style="border-radius:5px; width:150px; height:auto;">
+                        <div class="txt-actu"><p class="actu_html_3" style="display:contents"></p></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="centre">
+            <select name="select_spotify" id="sel_spot"
+                    onchange="
+                    change_spot = document.getElementById('spotify_iframe');
+
+                    if (this.selectedIndex == 1){ //ORELSAN
+                        var src_iframe = 'https://open.spotify.com/embed/album/5nyLaTsztHW8mI1KAWeGkS';
+                    }else if (this.selectedIndex == 2){ //47TER
+                        var src_iframe = 'https://open.spotify.com/embed/album/4e7ePEb65YZL6niyu77tzn';
+                    } else if (this.selectedIndex == 3){ //PLK
+                        var src_iframe = 'https://open.spotify.com/embed/album/0IBVzjJxYn6o69T4FfXMLi';
+                    } else if (this.selectedIndex == 4){ //Lomepal
+                        var src_iframe = 'https://open.spotify.com/embed/album/5dZVLJVUZduRmYFINFgE7Y';
+                    } else if (this.selectedIndex == 5){ //Damso
+                        var src_iframe = 'https://open.spotify.com/embed/album/7JJ1Zqwc0m0cDyXXodXCqb';
+                    }
+
+                    change_spot.style.height = 80 + 'px';
+                    change_spot.style.width = 400 + 'px';
+                    change_spot.style.borderRadius = '10px';
+                    change_spot.src = src_iframe;
+                    ">
+                <option selected="selected">Définir la musique</option>
+                <option value="Orelsan">Orelsan</option>
+                <option value="47TER">47ter</option>
+                <option value="PLK">PLK</option>
+                <option value="Lomepal">Lomepal</option>
+                <option value="Damso">Damso</option>
+            </select>
+
+        <div class="frame_sp" id ="result_spot">
+            <p style = "position: absolute;padding-top: 6px; font-size: 34px; padding-left: 15px; z-index: 1"> Musique </p>
+            <iframe src="" id="spotify_iframe" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+
+        <div class="frame_note" style="margin-top: 5px;color: white;">
+            <div class="titre_note"><p style="padding-left: 15px;font-size: 26px;">Note </p></div>
+            <div class="note"><div contenteditable class="input" id="text_div"></div></div>
+
+            <div class="boutons_textarea" style="margin-top: 10px;color: white;">
+                <div class="bouton_send"><p class="text_bouton_send">Send</p> </div>
+                <div class="bouton_copy"><p class="text_bouton_copy">Copy</p> </div>
+                <p id="obj" style="padding-top: 50px"></p>
+            </div>
+        </div>
+    </div>
+    <div id="droite">
+        <div class="container_mail">
+            <p> HEURE </p>
+        </div>
+        <div class="container_shortcut">
+            <div class="ent_istp"><a href="https://ent.istp-france.com/ENT/Eleve/default.aspx" target="_blank"><img class="img_ent" src="img/istp_ent.jpg" alt=""></a></div>
+            <div class="ent_istp"><a href="" target="_blank"><img class="img_ent" src="img/istp_ent.jpg" alt=""></a></div>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript" src="dashboard.js"></script>
+</body>
+
+</html>

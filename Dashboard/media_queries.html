@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="test.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <div class="content_int_1"></div>
+        <div class="content_int_2"></div>
+        <div class="content_int_3"></div>
+        <div class="content_int_4"></div>
+        <div class="content_int_5"></div>
+        <div class="content_int_6"></div>
+    </div>
+    <script>
+        console.log(document.body.clientWidth);
+        console.log(document.body.clientHeight);
+
+        console.log(window.innerWidth);
+        console.log(window.innerHeight);
+
+        const content = document.querySelector('.content')
+        const content_1 = document.querySelector('.content_int_1')
+        const content_2 = document.querySelector('.content_int_2')
+        const content_3 = document.querySelector('.content_int_3')
+        const content_4 = document.querySelector('.content_int_4')
+        const content_5 = document.querySelector('.content_int_5')
+        const content_6 = document.querySelector('.content_int_6')
+
+        var mql = window.matchMedia("(orientation: portrait)")
+
+        mql.addListener(handleOrientationChange);
+        handleOrientationChange(mql);
+
+        function handleOrientationChange(mql) {
+            if (mql.matches) {      //PORTRAIT
+
+                content.style.cssText ="background:blue;width:auto;height:270px;display:block;overflow:auto";
+                content_1.style.cssText ="background:red;width:46%;height:105px;float:left;padding:15px";
+                content_2.style.cssText ="background:green;width:46%;height:105px;float:left;padding:15px";
+                content_3.style.cssText ="background:yellow;width:46%;height:105px;float:left;padding:15px";
+                content_4.style.cssText ="background:orange;width:46%;height:105px;float:left;padding:15px";
+                content_5.style.cssText ="background:purple;width:46%;height:105px;float:left;padding:15px";
+                content_6.style.cssText ="background:gray;width:46%;height:105px;float:left;padding:15px";
+
+
+            } else {    //PAYSAGE
+
+                content.style.background ="blue";
+                content_1.style.background ="red";
+                content_2.style.background ="green";
+                content_3.style.background ="yellow";
+                content_4.style.background ="orange";
+
+                content.style.width= "auto";
+                content.style.height= "auto";
+
+                content_1.style.width= 200 + "px";
+                content_1.style.height= 80 + "px";
+
+                content_2.style.width= 200 + "px";
+                content_2.style.height= 80 + "px";
+
+                content_3.style.width= 200 + "px";
+                content_3.style.height= 80 + "px";
+
+                content_4.style.width= 200 + "px";
+                content_4.style.height= 80 + "px";
+
+                content_1.style.margin = 15 + "px";
+                content_2.style.margin = 15 + "px";
+                content_3.style.margin = 15 + "px";
+                content_4.style.margin = 15 + "px";
+
+                content.style.display = "flex";
+
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

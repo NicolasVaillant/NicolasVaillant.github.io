@@ -1,0 +1,28 @@
+
+.content{
+    border-radius: 10px;
+    width: 500px;
+    height: 80px;
+
+}
+.content_int_1,.content_int_2,.content_int_3,.content_int_4,.content_int_5,.content_int_6{
+    border-radius: 10px;
+}
+
+@media (orientation: landscape) {
+
+  body{
+    margin: 25px;
+      background-color: #3282b8;
+  }
+
+}
+
+@media (orientation: portrait) {
+    body{
+        margin: 25px;
+        background-color: #3282b8;
+    }
+
+}
+

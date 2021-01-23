@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="test.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+    $(document).ready(function()
+    {
+        setInterval(function(){
+            var dt=new Date();
+            $("#gauche").text("Time :" + dt.getHours() + " : " + dt.getMinutes() + " : " + dt.getSeconds());
+        },1000);
+
+    $("#droite").text("Time :" + dt.getHours() + " : " + dt.getMinutes() + " : " + dt.getSeconds());
+    $(".panel").css("height", $(window).height());
+
+    });
+
+    $(function(){
+        var explore = $('#explore').css("height");
+        console.log(explore);
+
+        $( window ).on("resize", function() {
+           explore = $('#explore').css("height");
+           console.log(explore);
+        });
+    });
+
+</script>
+</head>
+
+<body>
+<div class="content">
+    <p> Time :</p>
+    <div id="gauche"></div>
+
+    <div id="droite"></div>
+</div>
+
+</body>
+
+</html>

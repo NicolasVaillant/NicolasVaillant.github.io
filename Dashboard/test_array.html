@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST_ARRAY</title>
+    <link rel="stylesheet" href="dashboard_css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="header-actu" style="width: 100px; height: 300px">
+        <input type="range" id="volume-control" style="margin-top: 100px">
+        <iframe src="https://open.spotify.com/embed/album/5nyLaTsztHW8mI1KAWeGkS" id="spotify_iframe" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <button onclick="vol()">VOLUME</button>
+
+    </div>
+
+
+    <script>
+
+        function vol(){
+
+            var browser = document.querySelector('#spotify_iframe');
+            browser.volume(0.5);
+        }
+
+
+    </script>
+</body>
+
+</html>
